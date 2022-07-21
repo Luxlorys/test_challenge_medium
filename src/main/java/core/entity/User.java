@@ -1,14 +1,12 @@
 package core.entity;
 
-import java.math.BigInteger;
-
 public class User {
 
     private final String firstName;
     private final String lastName;
-    private final BigInteger amountOfMoney;
+    private final int amountOfMoney;
 
-    public User(String firstName, String lastName, BigInteger amountOfMoney) {
+    public User(String firstName, String lastName, int amountOfMoney) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.amountOfMoney = amountOfMoney;
@@ -22,7 +20,7 @@ public class User {
         return lastName;
     }
 
-    public BigInteger getAmountOfMoney() {
+    public int getAmountOfMoney() {
         return amountOfMoney;
     }
 }
