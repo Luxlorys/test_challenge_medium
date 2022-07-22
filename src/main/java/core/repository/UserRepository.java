@@ -31,7 +31,7 @@ public class UserRepository {
 
     public final boolean registerNewUser(User user) {
         String query = "INSERT INTO User (First_name, Last_name, Amount_of_Money) VALUES (?, ?, ?)";
-        try{
+        try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, user.getFirstName());
@@ -47,7 +47,7 @@ public class UserRepository {
 
     public final boolean deleteUser(String userName) {
         String query = "DELETE FROM User WHERE First_name = ?";
-        try{
+        try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, userName);

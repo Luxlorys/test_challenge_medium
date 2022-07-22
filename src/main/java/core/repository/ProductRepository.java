@@ -30,7 +30,7 @@ public class ProductRepository {
 
     public final boolean addProduct(Product product) {
         String query = "INSERT INTO Product (Product_name, price) VALUES (?, ?)";
-        try{
+        try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, product.getProductName());
@@ -45,7 +45,7 @@ public class ProductRepository {
 
     public final boolean deleteProduct(String productName) {
         String query = "DELETE FROM Product WHERE Product_name = ?";
-        try{
+        try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, productName);
