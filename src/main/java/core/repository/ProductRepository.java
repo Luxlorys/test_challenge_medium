@@ -14,5 +14,65 @@ create unique index Product_Product_name_uindex
 
 */
 
+import core.dao.DAO;
+import core.entity.Product;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ProductRepository {
+    private final DAO dao;
+
+    public ProductRepository(DAO dao) {
+        this.dao = dao;
+    }
+
+    public final boolean addProduct(Product product) {
+        String query = "INSERT INTO Product (Product_name, price) VALUES (?, ?)";
+        try{
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+
+            preparedStatement.setString(1, product.getProductName());
+            preparedStatement.setInt(2, product.getProductPrice());
+
+            return preparedStatement.executeUpdate() == 1;
+        } catch (SQLException sqle) {
+            throw new RuntimeException(sqle);
+        }
+    }
+
+
+    public final boolean deleteProduct(String productName) {
+        String query = "DELETE FROM Product WHERE Product_name = ?";
+        try{
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+
+            preparedStatement.setString(1, productName);
+
+            return preparedStatement.executeUpdate() == 1;
+        } catch (SQLException sqle) {
+            throw new RuntimeException(sqle);
+        }
+    }
+
+    public final boolean displayAllProducts() {
+        try {
+            String query = "SELECT  * FROM Product";
+
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            System.out.println("Database view: ");
+            while (resultSet.next()) {
+                System.out.print("id: " + resultSet.getInt("id") + " | ");
+                System.out.print("Product: " + resultSet.getString("Product_name") + " | ");
+                System.out.println("Product price: " + resultSet.getInt("Price") + " | ");
+
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return true;
+    }
 }
