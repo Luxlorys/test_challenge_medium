@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05f9640e-3649-4a7f-95f1-fd6d67e09cb1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a94a0f9-47a4-4143-9c27-897d3291fb04.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/exceprions/NotEnoughMoneyToBuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/exceptions/NotEnoughMoneyToBuy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/repository/CartRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/repository/UserRepository.java" afterDir="false" />
@@ -79,7 +79,8 @@
       <updated>1658436586958</updated>
       <workItem from="1658437109177" duration="7385000" />
       <workItem from="1658477737587" duration="1289000" />
-      <workItem from="1658493508839" duration="72000" />
+      <workItem from="1658493508839" duration="462000" />
+      <workItem from="1658496378192" duration="414000" />
     </task>
     <servers />
   </component>

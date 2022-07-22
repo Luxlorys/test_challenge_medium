@@ -13,5 +13,13 @@ create table Cart (
 );
 */
 
+import core.dao.DAO;
+
 public class CartRepository {
+
+    private final DAO dao;
+
+    public CartRepository(DAO dao) {
+        this.dao = dao;
+    }
 }

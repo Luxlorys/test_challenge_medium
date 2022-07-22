@@ -28,7 +28,7 @@ public class ProductRepository {
         this.dao = dao;
     }
 
-    public final boolean addProduct(Product product) {
+    public final void addProduct(Product product) {
         String query = "INSERT INTO Product (Product_name, price) VALUES (?, ?)";
         try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
@@ -36,27 +36,31 @@ public class ProductRepository {
             preparedStatement.setString(1, product.getProductName());
             preparedStatement.setInt(2, product.getProductPrice());
 
-            return preparedStatement.executeUpdate() == 1;
+            if(preparedStatement.executeUpdate() == 1) {
+                System.out.println("Product: " + product.getProductName() + " successfully added");
+            }
         } catch (SQLException sqle) {
             throw new RuntimeException(sqle);
         }
     }
 
 
-    public final boolean deleteProduct(String productName) {
+    public final void deleteProduct(String productName) {
         String query = "DELETE FROM Product WHERE Product_name = ?";
         try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, productName);
 
-            return preparedStatement.executeUpdate() == 1;
+            if(preparedStatement.executeUpdate() == 1) {
+                System.out.println("Product: " + productName + " successfully deleted");
+            }
         } catch (SQLException sqle) {
             throw new RuntimeException(sqle);
         }
     }
 
-    public final boolean displayAllProducts() {
+    public final void getAllProducts() {
         try {
             String query = "SELECT  * FROM Product";
 
@@ -71,8 +75,7 @@ public class ProductRepository {
 
             }
         } catch (SQLException exception) {
-            exception.printStackTrace();
+            throw new RuntimeException(exception);
         }
-        return true;
     }
 }

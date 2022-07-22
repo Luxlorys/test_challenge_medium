@@ -29,7 +29,7 @@ public class UserRepository {
         this.dao = dao;
     }
 
-    public final boolean registerNewUser(User user) {
+    public final void registerNewUser(User user) {
         String query = "INSERT INTO User (First_name, Last_name, Amount_of_Money) VALUES (?, ?, ?)";
         try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
@@ -38,27 +38,31 @@ public class UserRepository {
             preparedStatement.setString(2, user.getLastName());
             preparedStatement.setInt(3, user.getAmountOfMoney());
 
-            return preparedStatement.executeUpdate() == 1;
+            if(preparedStatement.executeUpdate() == 1) {
+                System.out.println("User: " + user.getFirstName() + " successfully registered");
+            }
         } catch (SQLException sqle) {
             throw new RuntimeException(sqle);
         }
     }
 
 
-    public final boolean deleteUser(String userName) {
+    public final void deleteUser(String userName) {
         String query = "DELETE FROM User WHERE First_name = ?";
         try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, userName);
 
-            return preparedStatement.executeUpdate() == 1;
+            if(preparedStatement.executeUpdate() == 1) {
+                System.out.println("User: " + userName + " successfully deleted");
+            }
         } catch (SQLException sqle) {
             throw new RuntimeException(sqle);
         }
     }
 
-    public final boolean displayAllUsers() {
+    public final void displayAllUsers() {
         try {
             String query = "SELECT  * FROM User";
 
@@ -74,8 +78,7 @@ public class UserRepository {
 
             }
         } catch (SQLException exception) {
-            exception.printStackTrace();
+            throw new RuntimeException(exception);
         }
-        return true;
     }
 }

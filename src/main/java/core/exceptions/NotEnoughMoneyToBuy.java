@@ -1,4 +1,4 @@
-package core.exceprions;
+package core.exceptions;
 
 public class NotEnoughMoneyToBuy extends RuntimeException{
 
