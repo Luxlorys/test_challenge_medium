@@ -5,6 +5,8 @@ Hello everyone, it's a medium lvl of java challenge test.
 As database i'm going to use MySQL and JDBC connector for connection to db.
 The database will store three table: Users, Products and Cart...Cart stores User id and Product id (with many-to-many relationship)
 
+Of course, users can add as many products as they want, but they can't buy them, if they don't have enough money.
+
 Below you can see the database structure
 
 
@@ -32,3 +34,9 @@ Get order of certain user example
 
 
 ![image](https://user-images.githubusercontent.com/53920825/180607912-07d937f5-1ed8-4295-a856-1796f25e7e3f.png)
+
+
+If user have enough money to buy products in cart he can see successfully message, and if not, he will see an exception
+
+
+![image](https://user-images.githubusercontent.com/53920825/180609242-afd4d87d-19d1-4137-a8f1-3b24e99f401c.png)
