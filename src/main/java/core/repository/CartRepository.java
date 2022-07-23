@@ -16,6 +16,7 @@ create table Cart (
 import core.dao.DAO;
 import core.entity.Product;
 import core.entity.User;
+import core.exceptions.NotEnoughMoneyToBuy;
 
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
@@ -31,8 +32,6 @@ public class CartRepository {
         this.dao = dao;
     }
 
-
-    public final void buyProduct(User user, Product product) {}
 
     public final void addProductToCart(User user, Product product) {}
 
@@ -109,4 +108,35 @@ public class CartRepository {
         }
     }
 
+
+    public final void buyProduct(String userName) {
+        String query = "SELECT Cart.id, User.First_name, User.Last_name, User.Amount_of_money,\n" +
+                "       Product.Product_name, Product.Price\n" +
+                "FROM Cart\n" +
+                "    INNER JOIN User ON Cart.user_id = User.id\n" +
+                "    INNER JOIN Product ON Cart.product_id = Product.id\n" +
+                "WHERE User.First_name = ?";
+
+        try {
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+            preparedStatement.setString(1, userName);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            BigDecimal orderSum = BigDecimal.valueOf(0);
+            BigDecimal userAmountOfMoney = BigDecimal.valueOf(0);
+
+            while (resultSet.next()) {
+                orderSum = orderSum.add(resultSet.getBigDecimal("Price"));
+                userAmountOfMoney = resultSet.getBigDecimal("Amount_of_money");
+            }
+
+            if(userAmountOfMoney.compareTo(orderSum) < 0) {
+                throw new NotEnoughMoneyToBuy("Not enough money to buy these products");
+            }
+            System.out.println("Products purchased successfully");
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
 }
