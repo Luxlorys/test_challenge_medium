@@ -22,7 +22,6 @@ import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.function.BiConsumer;
 
 public class CartRepository {
 
@@ -33,7 +32,23 @@ public class CartRepository {
     }
 
 
-    public final void addProductToCart(User user, Product product) {}
+    public final void addProductToCart(int userId, int productId) {
+        String query = "INSERT INTO Cart (user_id, product_id) VALUES (?, ?)";
+
+        try {
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, productId);
+
+            if(preparedStatement.executeUpdate() == 1) {
+                System.out.println("Product to user cart successfully added");
+            }
+        } catch (SQLException sqle) {
+            throw new RuntimeException(sqle);
+        }
+
+    }
 
     public final void getAllOrders() {
         String query = "SELECT Cart.id, User.First_name, User.Last_name, User.Amount_of_money,\n" +
