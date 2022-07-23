@@ -36,7 +36,7 @@ public class UserRepository {
 
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
-            preparedStatement.setInt(3, user.getAmountOfMoney());
+            preparedStatement.setBigDecimal(3, user.getAmountOfMoney());
 
             if(preparedStatement.executeUpdate() == 1) {
                 System.out.println("User: " + user.getFirstName() + " successfully registered");
@@ -74,7 +74,7 @@ public class UserRepository {
                 System.out.print("id: " + resultSet.getInt("id") + " | ");
                 System.out.print("First name: " + resultSet.getString("First_name") + " | ");
                 System.out.print("Last name: " + resultSet.getString("Last_name") + " | ");
-                System.out.println("Amount of money: " + resultSet.getString("Amount_of_money"));
+                System.out.println("Amount of money: " + resultSet.getBigDecimal("Amount_of_money"));
 
             }
         } catch (SQLException exception) {

@@ -34,7 +34,7 @@ public class ProductRepository {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
 
             preparedStatement.setString(1, product.getProductName());
-            preparedStatement.setInt(2, product.getProductPrice());
+            preparedStatement.setBigDecimal(2, product.getProductPrice());
 
             if(preparedStatement.executeUpdate() == 1) {
                 System.out.println("Product: " + product.getProductName() + " successfully added");
@@ -71,7 +71,7 @@ public class ProductRepository {
             while (resultSet.next()) {
                 System.out.print("id: " + resultSet.getInt("id") + " | ");
                 System.out.print("Product: " + resultSet.getString("Product_name") + " | ");
-                System.out.println("Product price: " + resultSet.getInt("Price") + " | ");
+                System.out.println("Product price: " + resultSet.getBigDecimal("Price") + " | ");
 
             }
         } catch (SQLException exception) {

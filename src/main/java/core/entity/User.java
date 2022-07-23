@@ -1,12 +1,14 @@
 package core.entity;
 
+import java.math.BigDecimal;
+
 public class User {
 
     private final String firstName;
     private final String lastName;
-    private final int amountOfMoney;
+    private final BigDecimal amountOfMoney;
 
-    public User(String firstName, String lastName, int amountOfMoney) {
+    public User(String firstName, String lastName, BigDecimal amountOfMoney) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.amountOfMoney = amountOfMoney;
@@ -20,7 +22,7 @@ public class User {
         return lastName;
     }
 
-    public int getAmountOfMoney() {
+    public BigDecimal getAmountOfMoney() {
         return amountOfMoney;
     }
 }

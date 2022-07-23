@@ -14,6 +14,8 @@ create table Cart (
 */
 
 import core.dao.DAO;
+import core.entity.Product;
+import core.entity.User;
 
 public class CartRepository {
 
@@ -21,5 +23,9 @@ public class CartRepository {
 
     public CartRepository(DAO dao) {
         this.dao = dao;
+    }
+
+
+    public final void buyProduct(User user, Product product) {
     }
 }

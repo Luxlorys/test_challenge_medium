@@ -1,11 +1,13 @@
 package core.entity;
 
+import java.math.BigDecimal;
+
 public class Product {
 
     private final String productName;
-    private final int productPrice;
+    private final BigDecimal productPrice;
 
-    public Product(String productName, int productPrice) {
+    public Product(String productName, BigDecimal productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
     }
@@ -15,7 +17,7 @@ public class Product {
         return productName;
     }
 
-    public int getProductPrice() {
+    public BigDecimal getProductPrice() {
         return productPrice;
     }
 }
