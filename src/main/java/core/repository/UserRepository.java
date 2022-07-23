@@ -62,7 +62,7 @@ public class UserRepository {
         }
     }
 
-    public final void displayAllUsers() {
+    public final void getAllUsers() {
         try {
             String query = "SELECT  * FROM User";
 

@@ -61,9 +61,8 @@ public class ProductRepository {
     }
 
     public final void getAllProducts() {
+        String query = "SELECT  * FROM Product";
         try {
-            String query = "SELECT  * FROM Product";
-
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
