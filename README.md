@@ -20,3 +20,15 @@ Result:
 
 
 ![image](https://user-images.githubusercontent.com/53920825/180607736-3ddfe613-30b4-40fc-9cee-f950d6444319.png)
+
+
+Get cart of all users example
+
+
+![image](https://user-images.githubusercontent.com/53920825/180607878-116c9445-940c-46b0-8e76-5db427d781c6.png)
+
+
+Get order of certain user example
+
+
+![image](https://user-images.githubusercontent.com/53920825/180607912-07d937f5-1ed8-4295-a856-1796f25e7e3f.png)
