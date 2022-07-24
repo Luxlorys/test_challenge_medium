@@ -148,8 +148,24 @@ public class CartRepository {
 
             if(userAmountOfMoney.compareTo(orderSum) < 0) {
                 throw new NotEnoughMoneyToBuy("Not enough money to buy these products");
+            } else {
+                updateUserAmountOfMoney(userName, userAmountOfMoney.subtract(orderSum));
+                System.out.println("Products purchased successfully");
             }
-            System.out.println("Products purchased successfully");
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+
+    private final void updateUserAmountOfMoney(String userName, BigDecimal amountOfMoney) {
+        String query = "UPDATE Uset SET Amount_of_money = ? WHERE First_name = ?";
+        try{
+            PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
+            preparedStatement.setBigDecimal(1, amountOfMoney);
+            preparedStatement.setString(2, userName);
+
+            preparedStatement.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
