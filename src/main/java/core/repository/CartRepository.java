@@ -158,6 +158,7 @@ public class CartRepository {
     }
 
 
+    // decrease user money
     private final void updateUserAmountOfMoney(String userName, BigDecimal amountOfMoney) {
         String query = "UPDATE User SET Amount_of_money = ? WHERE First_name = ?";
         try{

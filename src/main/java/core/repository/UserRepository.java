@@ -29,7 +29,7 @@ public class UserRepository {
         this.dao = dao;
     }
 
-    public final void registerNewUser(User user) {
+    public final void addNeUser(User user) {
         String query = "INSERT INTO User (First_name, Last_name, Amount_of_Money) VALUES (?, ?, ?)";
         try {
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
