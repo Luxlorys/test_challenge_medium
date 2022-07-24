@@ -7,6 +7,9 @@ The database will store three table: Users, Products and Cart...Cart stores User
 
 Of course, users can add as many products as they want, but they can't buy them, if they don't have enough money.
 
+P.S. many-to-many relationship was a bad idea, i think i need one-to-many but i haven't time. Also i know that i didn't delete orders in
+cart when the user successfully buy his products. And I didn't use the repository pattern correctly.
+
 Below you can see the database structure
 
 
