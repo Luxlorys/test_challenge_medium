@@ -159,7 +159,7 @@ public class CartRepository {
 
 
     private final void updateUserAmountOfMoney(String userName, BigDecimal amountOfMoney) {
-        String query = "UPDATE Uset SET Amount_of_money = ? WHERE First_name = ?";
+        String query = "UPDATE User SET Amount_of_money = ? WHERE First_name = ?";
         try{
             PreparedStatement preparedStatement = dao.connectionToDB().prepareStatement(query);
             preparedStatement.setBigDecimal(1, amountOfMoney);

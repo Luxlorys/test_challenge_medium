@@ -29,7 +29,7 @@ public class Main {
 //        cartRepository.getAllOrders();
 
 //        cartRepository.getUserCart("TestName");
-        cartRepository.addProductToCart(6, 5);
+        cartRepository.buyProduct("123");
 
     }
 }
