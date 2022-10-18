@@ -5,7 +5,7 @@ Hello everyone, it's a medium lvl of java challenge test.
 As database i'm going to use MySQL and JDBC connector for connection to db.
 The database will store three table: Users, Products and Cart...Cart stores User id and Product id (with many-to-many relationship)
 
-Of course, users can add as many products as they want, but they can't buy them, if they don't have enough money.
+Of course, users can add as many products as they want, but they couldn't buy them, if they don't have money enough.
 
 P.S. many-to-many relationship was a bad idea, i think i need one-to-many but i haven't time. Also i know that i didn't delete orders in
 cart when the user successfully buy his products. And I didn't use the repository pattern correctly.
